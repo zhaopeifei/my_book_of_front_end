@@ -2,7 +2,7 @@
 
 * [前言](README.md)
 * [1. JavaScript](chapter1.md)
-  * [基础类型](chapter1/ji-chu-lei-xing.md)
+  * [基本类型](chapter1/ji-chu-lei-xing.md)
 * [2. CSS](css.md)
 * [3. HTML](html.md)
 * [4. 计算机网络](ji-suan-ji-wang-luo.md)
