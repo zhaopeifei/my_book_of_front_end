@@ -3,6 +3,12 @@
 * [前言](README.md)
 * [1. JavaScript](chapter1.md)
   * [基本类型](chapter1/ji-chu-lei-xing.md)
+    * [Undefined与Null](chapter1/ji-chu-lei-xing/undefinedlei-578b26-null-lei-xing.md)
+    * [Boolean类型](chapter1/ji-chu-lei-xing/booleanlei-xing.md)
+    * [Number类型](chapter1/ji-chu-lei-xing/numberlei-xing.md)
+    * [String类型](chapter1/ji-chu-lei-xing/stringlei-xing.md)
+    * 原生函数
+    * 类型转换
 * [2. CSS](css.md)
 * [3. HTML](html.md)
 * [4. 计算机网络](ji-suan-ji-wang-luo.md)
