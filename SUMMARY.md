@@ -18,4 +18,5 @@
 * [8. 工程化](gong-cheng-hua.md)
 * [9. 工具](gong-ju.md)
   * [Git版本控制系统](gong-ju/gitdai-ma-guan-li.md)
+    * [常用命令](gong-ju/gitdai-ma-guan-li/chang-yong-ming-ling.md)
 
