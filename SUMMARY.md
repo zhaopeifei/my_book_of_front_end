@@ -19,4 +19,7 @@
 * [9. 工具](gong-ju.md)
   * [Git版本控制系统](gong-ju/gitdai-ma-guan-li.md)
     * [常用命令](gong-ju/gitdai-ma-guan-li/chang-yong-ming-ling.md)
+* [React与Redux](reactyu-redux.md)
+  * [React基础](reactyu-redux/reactji-chu.md)
+  * [React组件生命周期](reactyu-redux/reactzu-jian-sheng-ming-zhou-qi.md)
 
