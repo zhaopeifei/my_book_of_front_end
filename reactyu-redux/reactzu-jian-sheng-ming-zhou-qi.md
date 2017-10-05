@@ -1,4 +1,4 @@
-# React组价生命周期
+# React组件生命周期
 
 React的组件的生命周期分为三个过程：
 
@@ -15,7 +15,7 @@ React的组件的生命周期分为三个过程：
 3. render：渲染函数，唯一的一定不能省略的函数，必须有返回值，返回null或false表示不渲染任何DOM元素。它是一个仅仅用于渲染的纯函数，返回值完全取决于this.state和this.props，不能在函数中任何修改props、state、拉取数据等具有副作用的操作。render函数返回的是JSX的对象，该函数并不因为这渲染到DOM树，何时进行真正的渲染是有React库决定的。
 4. componentDidMount：挂载成功函数。该函数不会再render函数调用完成之后立即调用，因为render函数仅仅是返回了JSX的对象，并没有立即挂载到DOM树上，而componentDidMount是在组件被渲染到DOM树之后被调用的。另外，componentDidMount函数在进行服务器端渲染时不会被调用。
 
-在React 中，除了render函数之外，都有默认的函数实现，如果不要使用相应的生命周期函数则可以省略。constructor通常用于state的初始化操作，`this.state = {}; `函数绑定this建议在定义的时候直接使用箭头函数来实现，就不需要在constructor函数中进行this绑定操作了。componentWillMount用的很少，比较鸡肋。render函数必须实现，可以通过返回null来进行不渲染。componentDidMount通常用于服务器数据的拉取操作，之所以在componentDidMount中而不是在构造函数中进行数据拉取的原因在于：如果数据拉取回来了，即props已经有值了，但是组件还没有渲染出来，会报错。但是这里有一些把数据拉取提前到constructor函数的思路：在contructor函数中，通过promise来进行数据的拉取，并且绑定到this对象上，然后在componentDidMount中执行promise把数据更新到props上。
+在React 中，除了render函数之外，都有默认的函数实现，如果不要使用相应的生命周期函数则可以省略。constructor通常用于state的初始化操作，`this.state = {};`函数绑定this建议在定义的时候直接使用箭头函数来实现，就不需要在constructor函数中进行this绑定操作了。componentWillMount用的很少，比较鸡肋。render函数必须实现，可以通过返回null来进行不渲染。componentDidMount通常用于服务器数据的拉取操作，之所以在componentDidMount中而不是在构造函数中进行数据拉取的原因在于：如果数据拉取回来了，即props已经有值了，但是组件还没有渲染出来，会报错。但是这里有一些把数据拉取提前到constructor函数的思路：在contructor函数中，通过promise来进行数据的拉取，并且绑定到this对象上，然后在componentDidMount中执行promise把数据更新到props上。
 
 ## 更新过程
 
@@ -32,6 +32,4 @@ React的组件的生命周期分为三个过程：
 ## 卸载过程
 
 卸载过程只涉及一个函数componentWillUnmount，当React组件要从DOM树上删除前，会调用一次这个函数。这个函数经常用于去除componentDidMount函数带来的副作用，例如清楚计时器、删除componentDidMount中创造的非React元素。
-
-
 
