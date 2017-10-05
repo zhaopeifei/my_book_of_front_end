@@ -22,7 +22,7 @@ React的组件的生命周期分为三个过程：
 当组件挂载到DOM树上之后，props/state被修改会导致组件进行更新操作。更新过程会以此调用如下的生命周期函数：
 
 1. componentWillReceiveProps\(nextProps\)：该函数在组件进行更新以及**父组件render函数（不管数据是否发生了改变）**被调用后执行，this.props取得当前的props，nextProps传入的是要更新的props。
-2. componentShouldUpdate\(nextProps, nextState\)：返回bool值，true表示要更新，false表示不更新，使用得当将大大提高React组件的性能，避免不需要的渲染。
+2. shouldComponentUpdate\(nextProps, nextState\)：返回bool值，true表示要更新，false表示不更新，使用得当将大大提高React组件的性能，避免不需要的渲染。
 3. componentWillUpdate：预更新函数。
 4. render：渲染函数。
 5. componentDidUpdate：更新完成函数。
