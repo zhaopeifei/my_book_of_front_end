@@ -23,4 +23,5 @@
   * [React基础](reactyu-redux/reactji-chu.md)
   * [React组件生命周期](reactyu-redux/reactzu-jian-sheng-ming-zhou-qi.md)
   * [Redux基础](reactyu-redux/redux.md)
+  * [React性能优化](reactyu-redux/reactxing-neng-you-hua.md)
 
