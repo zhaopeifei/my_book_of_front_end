@@ -33,3 +33,9 @@ React的组件的生命周期分为三个过程：
 
 卸载过程只涉及一个函数componentWillUnmount，当React组件要从DOM树上删除前，会调用一次这个函数。这个函数经常用于去除componentDidMount函数带来的副作用，例如清楚计时器、删除componentDidMount中创造的非React元素。
 
+## setState
+
+要修改state，只能使用this.setState\(\)，不能使用`this.state.value=2`类似方式设置state，一是不会驱动重新渲染，二是很可能被后面的操作替换，造成无法预知的错误。此外，React利用状态队列来实现setState的异步更新，避免频繁地重复更新state。
+
+setState的调用是有风险的，在某些生命周期函数中调用可能会无用甚至早恒循环调用导致崩溃。state的初始化一般在构造函数中实现；setState可以在装载过程的componentWillMount、componentDidMount中调用；setState可以在更新过程中的componentWillReceiveProps、componentDidUpdate中调用。
+
