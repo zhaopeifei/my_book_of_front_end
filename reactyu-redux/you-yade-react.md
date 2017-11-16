@@ -195,6 +195,8 @@ class FooterBarBasic extends Component {
 
 ## 使用Promise
 
+---
+
 在React和Redux中，我们经常需要发起ajax请求来获取数据。每次发起ajax请求后，都需要dispatch来把获取的数据加到props中，这个就需要新建actionType以及reducer函数。然而，有些时候，我们只需要知道成功或者失败，并不需要获取数据，此时就可以使用Promise来处理。使用promise不仅可以避免react中ajax请求发起和处理结果的隔离感，更能少些很多代码。但是，promise中的数据获取和新的props的数据时间顺序是不可控的，如果对获取值的时间顺序有要求，不要相信promise中返回的数据（因为这个时候，props的新数据可能还没有拿到）。
 
 ```
@@ -227,7 +229,11 @@ class FooterBarBasic extends Component {
 }
 ```
 
-## Reducer的简写
+## Reducer
+
+---
+
+### Reducer简写
 
 避免reducer中大量重复的代码。
 
@@ -248,13 +254,21 @@ const reduer = function (state = {}, action) {
 };
 ```
 
+### combineReducer
+
+
+
 ## 生命周期函数
+
+---
 
 除了render函数是必须的外，其他生命函数在不需要的时候都不要写。constructor只有在需要定义state的时候是必须的。
 
-
+## 
 
 ## PureComponent
+
+---
 
 pureComponent可以帮助我们做浅比较，从一定程度上避免重复渲染。
 
@@ -270,15 +284,15 @@ class Child extends PureComponent {
 export default Child;
 ```
 
-
-
 ## PropTypes
 
+---
 
-
-
+## 
 
 ## 调试工具
+
+---
 
 store.js中可以使用如下写法，有如下功能：
 
@@ -322,6 +336,5 @@ export default createStore(
 );
 ```
 
-  
 
 
