@@ -13,7 +13,7 @@ class Container extends Component {
     getData() => {
         this.props.getData();
     }
-    
+
     render() {
         return (
             <div className="container">
@@ -75,7 +75,7 @@ class FooterBarQQzondVip extends Component {
             console.log('not qq zone vip');
         })
     }
-    
+
     render() {
         return (
             <FooterBarBasic
@@ -94,13 +94,13 @@ class FooterBarBasic extends Component {
             this.pay();
         }
     }
-    
+
     beforePay = () => {
         this.props.beforePay();
     }
-    
+
     pay = () => { // do something }
-    
+
     render() {
         return (
             <div className="footer-bar">
@@ -110,8 +110,6 @@ class FooterBarBasic extends Component {
     }
 }
 ```
-
-
 
 ## 方法定义&传参&绑定this
 
@@ -123,10 +121,30 @@ class FooterBarBasic extends Component {
 
 ```
 class FooterBarBasic extends Component {
-    beforePay = () => {
-        this.props.beforePay();
+    beforePay = (id) => {
+        this.props.beforePay(id);
     }
-    
+
+    render() {
+        return (
+            <div className="footer-bar">
+                <button onClick={() => { this.beforePay(this.props.id); }}>购买</button>
+            </div>
+        );
+    }
+}
+```
+
+### 尽量不要传参
+
+上面加入函数需要参数，则需要使用`onClick={() => { this.beforePay(this.props.id); }`或者\``onClick={this.beforePay.bind(this.this.props.id) }`\`的方式。但是，这两种方式都会动态生成函数，会造成浪费。可以说，只要在JSX给函数传参，那么久会动态生成函数，所以，要避免传递参数。需要的参数尽量在函数内部通过props或者state来获取。
+
+```
+class FooterBarBasic extends Component {
+    beforePay = () => {
+        this.props.beforePay(this.props.id);
+    }
+
     render() {
         return (
             <div className="footer-bar">
