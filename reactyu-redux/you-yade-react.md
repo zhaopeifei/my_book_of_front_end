@@ -175,7 +175,7 @@ class FooterBarBasic extends Component {
             isjoin,
             cou_id: coupon_id, // 解构命名
         } = this.props;
-        
+
         this.props.pay({
             course_id,
             isjoin,
@@ -205,7 +205,7 @@ class FooterBarBasic extends Component {
             isjoin,
             cou_id: coupon_id, // 解构命名
         } = this.props;
-        
+
         this.props.pay({
             course_id,
             isjoin,
@@ -238,14 +238,14 @@ const reduer = function (state = {}, action) {
     case TYPE2:
     case TYPE3:
       return Object.assign(...state, action.data); // 一样的处理方式进行合并
-      
+
     case PAID: 
       return Object.assign(...state, action.data, {paid: true});
-      
+
     default:
       return state;
   }
-};   
+};
 ```
 
 ## 生命周期函数
@@ -254,5 +254,74 @@ const reduer = function (state = {}, action) {
 
 
 
+## PureComponent
+
+pureComponent可以帮助我们做浅比较，从一定程度上避免重复渲染。
+
+```
+import React, { PureComponent } from 'react';
+
+class Child extends PureComponent {
+    render (
+        <div className="child">{this.props.name}</div>
+    );
+}
+
+export default Child;
+```
+
+
+
+## PropTypes
+
+
+
+
+
+## 调试工具
+
+store.js中可以使用如下写法，有如下功能：
+
+1. dev模式下，可以使用redux-logger功能；
+2. dev模式下，可以使用chrome内嵌的redux-devtools工具；
+3. dev模式下，可以使用eruda的手机内嵌控制台台；
+4. dev模式下，可以使用react-perf性能测试工具；
+5. production模式下，不会有上述库。
+
+```
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import reducer from './reducers';
+
+
+let middleware = applyMiddleware(thunkMiddleware);
+
+
+if (process.env.NODE_ENV !== 'production') {
+  // dev 模式
+  let createLogger = require('redux-logger');
+  let reduxDevTool = require('redux-devtools-extension'); // redux工具
+  let eruda = require('eruda'); // 手机内嵌控制台
+  let Perf = require('react-addons-perf'); // react性能测试
+
+
+  middleware = applyMiddleware(thunkMiddleware, createLogger());
+  middleware = reduxDevTool.composeWithDevTools(middleware);
+  eruda.init();
+  window.Perf = Perf;
+}
+
+
+let __initialState = window.__initialState;
+
+
+export default createStore(
+    reducer,
+    __initialState,
+    middleware
+);
+```
+
+  
 
 
