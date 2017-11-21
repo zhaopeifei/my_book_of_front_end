@@ -256,8 +256,6 @@ const reduer = function (state = {}, action) {
 
 ### combineReducer
 
-
-
 ## 生命周期函数
 
 ---
@@ -288,7 +286,29 @@ export default Child;
 
 ---
 
-## 
+使用PropTypes做React类型检查，一来可以在开发环境下协助定位问题，二来可以清晰的看到组件接口及含义。propTypes类型检查只有在dev模式下有用，在Production下没有用，应该进行去除，可以使用`transform-react-remove-prop-types`的库来进行移除proptypes操作。
+
+```
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import './index.scss'
+
+const ChildCard = ({name, avatar}) => {
+    return (
+        <div className="ChildCard">
+            <img className="avatar" src={avatar} alt="孩子头像" />
+            <div calssName="name">{name}</div>
+        </div>
+    );
+}
+
+ChildCard.propTypes = {
+    name: PropTypes.string.isRequired, // 名称
+    avatar: PropTypes.string, // 头像
+}
+export default ChildCard;
+```
 
 ## 调试工具
 
