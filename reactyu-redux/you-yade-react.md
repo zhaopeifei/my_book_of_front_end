@@ -155,8 +155,6 @@ ChildCard.propTypes = {
 export default ChildCard;
 ```
 
-
-
 ## 方法
 
 ---
@@ -320,8 +318,6 @@ const reduer = function (state = {}, action) {
 
 除了render函数是必须的外，其他生命函数在不需要的时候都不要写。constructor只有在需要定义state的时候是必须的。
 
-
-
 ## 调试工具
 
 ---
@@ -403,10 +399,25 @@ const action = Object.assign({
 
 * 使用模板字符串
 
-    const url = `${location.protocol}//fudao.qq.com/other_pay.html`
-        + `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
+  const url = `${location.protocol}//fudao.qq.com/other_pay.html`
 
+  * `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
 
+* 加载中&加载失败
+
+```
+render() {
+    const props = this.props;
+
+    if (!props.cid && props.courseDetailFail) {
+      return <PageFail />;
+    } else if (!props.cid) {
+      return <FetchingLoading />;
+    }
+
+    return <div>加载成功</div>
+}
+```
 
 
 
