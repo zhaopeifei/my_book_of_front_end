@@ -1,12 +1,8 @@
 # 优雅的React写法
 
-## ESLINT
-
----
-
 ## 
 
-## 组件层级
+## 组件
 
 ---
 
@@ -55,6 +51,22 @@ export default ChildCard;
 ```
 
 在设计组件的时候，把页面分为逻辑部分和渲染部分，逻辑部分尽量放到container容器组件中，尽量不负责渲染等工作，仅仅负责将展示组件给组合在一起，有利于逻辑的复用；而展示展示部分，按照一定的粒度分为多个展示组件，每个组件内部负责css样式和JSX结构，尽量不要使用状态，将展示组件写成上面的无状态组件，看起来更加清晰、轻量，复用也更加简单。
+
+### PureComponent
+
+pureComponent可以帮助我们做浅比较，从一定程度上避免重复渲染。
+
+```
+import React, { PureComponent } from 'react';
+
+class Child extends PureComponent {
+    render (
+        <div className="child">{this.props.name}</div>
+    );
+}
+
+export default Child;
+```
 
 ### 高阶组件（组合和继承）
 
@@ -117,6 +129,34 @@ class FooterBarBasic extends Component {
 }
 ```
 
+### PropTypes
+
+使用PropTypes做React类型检查，一来可以在开发环境下协助定位问题，二来可以清晰的看到组件接口及含义。propTypes类型检查只有在dev模式下有用，在Production下没有用，应该进行去除，可以使用`transform-react-remove-prop-types`的库来进行移除proptypes操作。
+
+```
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import './index.scss'
+
+const ChildCard = ({name, avatar}) => {
+    return (
+        <div className="ChildCard">
+            <img className="avatar" src={avatar} alt="孩子头像" />
+            <div calssName="name">{name}</div>
+        </div>
+    );
+}
+
+ChildCard.propTypes = {
+    name: PropTypes.string.isRequired, // 名称
+    avatar: PropTypes.string, // 头像
+}
+export default ChildCard;
+```
+
+
+
 ## 方法
 
 ---
@@ -165,11 +205,17 @@ class FooterBarBasic extends Component {
 
 一个方法的长度不要超过20行，超过的话，就需要进行拆分。特别是生命周期中的函数，一定不要太长。
 
-## 变量、解构、赋值
+## 
+
+## 变量
 
 ---
 
+### const、let
+
 现在我们都是用的ES6的写法，尽量使用const、let，避免使用var来定义变量。在React中，props以及props中的值都是不建议做修改的，所以上级组件传过来的props数据，使用const来定义；自己在组件中定义的可能改变的变量使用let。优先级为：const &gt; let &gt;&gt; var。
+
+### 赋值与解构
 
 另外，在进行对象变量赋值时，尽量使用简写，如果名称不一致，可以进行解构赋值。例如：
 
@@ -199,9 +245,13 @@ class FooterBarBasic extends Component {
 }
 ```
 
-## 使用Promise
+## 
+
+## 异步请求
 
 ---
+
+### Promise
 
 在React和Redux中，我们经常需要发起ajax请求来获取数据。每次发起ajax请求后，都需要dispatch来把获取的数据加到props中，这个就需要新建actionType以及reducer函数。然而，有些时候，我们只需要知道成功或者失败，并不需要获取数据，此时就可以使用Promise来处理。使用promise不仅可以避免react中ajax请求发起和处理结果的隔离感，更能少些很多代码。但是，promise中的数据获取和新的props的数据时间顺序是不可控的，如果对获取值的时间顺序有要求，不要相信promise中返回的数据（因为这个时候，props的新数据可能还没有拿到）。
 
@@ -235,7 +285,9 @@ class FooterBarBasic extends Component {
 }
 ```
 
-## Reducer
+## 
+
+## Redux
 
 ---
 
@@ -268,53 +320,7 @@ const reduer = function (state = {}, action) {
 
 除了render函数是必须的外，其他生命函数在不需要的时候都不要写。constructor只有在需要定义state的时候是必须的。
 
-## 
 
-## PureComponent
-
----
-
-pureComponent可以帮助我们做浅比较，从一定程度上避免重复渲染。
-
-```
-import React, { PureComponent } from 'react';
-
-class Child extends PureComponent {
-    render (
-        <div className="child">{this.props.name}</div>
-    );
-}
-
-export default Child;
-```
-
-## PropTypes
-
----
-
-使用PropTypes做React类型检查，一来可以在开发环境下协助定位问题，二来可以清晰的看到组件接口及含义。propTypes类型检查只有在dev模式下有用，在Production下没有用，应该进行去除，可以使用`transform-react-remove-prop-types`的库来进行移除proptypes操作。
-
-```
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import './index.scss'
-
-const ChildCard = ({name, avatar}) => {
-    return (
-        <div className="ChildCard">
-            <img className="avatar" src={avatar} alt="孩子头像" />
-            <div calssName="name">{name}</div>
-        </div>
-    );
-}
-
-ChildCard.propTypes = {
-    name: PropTypes.string.isRequired, // 名称
-    avatar: PropTypes.string, // 头像
-}
-export default ChildCard;
-```
 
 ## 调试工具
 
@@ -362,6 +368,8 @@ export default createStore(
 );
 ```
 
+## 
+
 ## 代码优雅写法
 
 ---
@@ -398,6 +406,7 @@ const action = Object.assign({
     const url = `${location.protocol}//fudao.qq.com/other_pay.html`
         + `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
 
-* 
+
+
 
 
