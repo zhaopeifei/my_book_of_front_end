@@ -358,3 +358,41 @@ export default createStore(
 
 
 
+## 代码优雅写法
+
+---
+
+* 渠道上报
+
+```
+ext: ['', 'QQWALLET', 'QZONEVIP', 'QQVIP'].indexOf(utils.getParams('coupon'))
+```
+
+* 组合action
+
+```
+import {
+  getCourseDetail,
+  checkSubpayStatus,
+} from 'pages/action_creators/course';
+
+import {
+  pay,
+  resetPayFailCode,
+} from 'pages/action_creators/pay';
+
+const action = Object.assign({
+  getCourseDetail,
+  checkSubpayStatus,
+  pay,
+  resetPayFailCode,
+});
+```
+
+* 使用模板字符串
+
+    const url = `${location.protocol}//fudao.qq.com/other_pay.html`
+        + `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
+
+
+
