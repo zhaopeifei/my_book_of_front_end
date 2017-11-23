@@ -1,5 +1,11 @@
 # 优雅的React写法
 
+## ESLINT
+
+---
+
+## 
+
 ## 组件层级
 
 ---
@@ -34,7 +40,7 @@ class Container extends Component {
 ```
 
 ```
-import './index.scss'
+import './index.scss'; // 通过这种方式来引入本组件的css
 
 const ChildCard = ({name, avatar}) => {
     return (
@@ -356,8 +362,6 @@ export default createStore(
 );
 ```
 
-
-
 ## 代码优雅写法
 
 ---
@@ -394,5 +398,6 @@ const action = Object.assign({
     const url = `${location.protocol}//fudao.qq.com/other_pay.html`
         + `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
 
+* 
 
 
