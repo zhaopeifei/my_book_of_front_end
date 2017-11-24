@@ -6,6 +6,31 @@
 
 ---
 
+尽量分模块划分为不同的组件，每个组件文件中最多只能有一个组件类，且组件的样式划分到每个组件中。文件结构如下：
+
+* course\_pay // 页面名称
+  * AreaDetail // 组件文件夹
+    * index.jsx  // 组件jsx
+    * index.scss // 组件样式
+  * Coupon
+    * index.jsx
+    * index.scss
+  * FooterBar
+    * index.jsx
+    * index.scss
+  * offpack
+    * phone.png
+    * time.png
+  * Container.jsx // 容器组件
+  * index.html 
+  * index.jsx // 组合action，连接store和页面
+  * index.scss// 容器层面样式
+  * preload-init.js
+  * reducer.js
+  * store.js
+
+
+
 ### 容器组件与展示组件
 
 容器组件负责业务逻辑，展示组件负责渲染，展示组件尽量做成无状态组件。
@@ -240,6 +265,9 @@ class FooterBarBasic extends Component {
       }
     }
 
+把一些值放到get属性中去获取
+
+    // good
     class Coupon extends Component {
       get valueSales () {
         if (props.sales) {
