@@ -35,26 +35,26 @@
 
 ```
 class Container extends Component {
-    getData() => {
-        this.props.getData();
-    }
+  getData() => {
+    this.props.getData();
+  }
 
-    render() {
-        return (
-            <div className="container">
-            {
-                props.children && props.children.map((item, index) => {
-                    return (
-                        <ChildCard
-                            key={item.id}
-                            {...item}
-                        />
-                    );
-                })
-            }
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="container">
+      {
+        props.children && props.children.map((item, index) => {
+          return (
+            <ChildCard
+              key={item.id}
+              {...item}
+            />
+          );
+        })
+      }
+    </div>
+    )
+  }
 }
 ```
 
@@ -62,12 +62,12 @@ class Container extends Component {
 import './index.scss'; // 通过这种方式来引入本组件的css
 
 const ChildCard = ({name, avatar}) => {
-    return (
-        <div className="ChildCard">
-            <img className="avatar" src={avatar} alt="孩子头像" />
-            <div calssName="name">{name}</div>
-        </div>
-    );
+  return (
+    <div className="ChildCard">
+      <img className="avatar" src={avatar} alt="孩子头像" />
+      <div calssName="name">{name}</div>
+    </div>
+  );
 }
 
 export default ChildCard;
@@ -83,9 +83,9 @@ pureComponent可以帮助我们做浅比较，从一定程度上避免重复渲�
 import React, { PureComponent } from 'react';
 
 class Child extends PureComponent {
-    render (
-        <div className="child">{this.props.name}</div>
-    );
+  render (
+    <div className="child">{this.props.name}</div>
+  );
 }
 
 export default Child;
@@ -97,58 +97,58 @@ export default Child;
 
 ```
 class FooterBar extends Component {
-    render() {
-        if (utils.getParams(coupon) === 'QQZONEVIP') {
-            return <FooterBarQQzondVip />
-        }
-        return <FooterBarBasic />
+  render() {
+    if (utils.getParams(coupon) === 'QQZONEVIP') {
+      return <FooterBarQQzondVip />
     }
+    return <FooterBarBasic />
+  }
 }
 ```
 
 ```
 class FooterBarQQzondVip extends Component {
-    beforePay = () => {
-        this.props.judgeQQzoneVip()
-        .then(() => {
-             this.setState({ isGoPay: true });   
-        }).catch(() => {
-            console.log('not qq zone vip');
-        })
-    }
+  beforePay = () => {
+    this.props.judgeQQzoneVip()
+      .then(() => {
+         this.setState({ isGoPay: true });   
+      }).catch(() => {
+        console.log('not qq zone vip');
+      })
+  }
 
-    render() {
-        return (
-            <FooterBarBasic
-                beforePay={this.beforePay}
-                isGoPay={this.state.isGoPay}
-            />
-        );
-    }
+  render() {
+    return (
+      <FooterBarBasic
+        beforePay={this.beforePay}
+        isGoPay={this.state.isGoPay}
+      />
+    );
+  }
 }
 ```
 
 ```
 class FooterBarBasic extends Component {
-    componentWillReceiveProps(nextProps) {
-        if(nextProps.isGoPay && !this.props.isGoPay) {
-            this.pay();
-        }
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.isGoPay && !this.props.isGoPay) {
+        this.pay();
     }
+ }
 
-    beforePay = () => {
-        this.props.beforePay();
-    }
+  beforePay = () => {
+    this.props.beforePay();
+  }
 
-    pay = () => { // do something }
+  pay = () => { // do something }
 
-    render() {
-        return (
-            <div className="footer-bar">
-                <button onClick={this.beforePay}>购买</button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="footer-bar">
+        <button onClick={this.beforePay}>购买</button>
+      </div>
+    );
+  }
 }
 ```
 
@@ -163,17 +163,17 @@ import PropTypes from 'prop-types';
 import './index.scss'
 
 const ChildCard = ({name, avatar}) => {
-    return (
-        <div className="ChildCard">
-            <img className="avatar" src={avatar} alt="孩子头像" />
-            <div calssName="name">{name}</div>
-        </div>
-    );
+  return (
+    <div className="ChildCard">
+    <img className="avatar" src={avatar} alt="孩子头像" />
+    <div calssName="name">{name}</div>
+    </div>
+  );
 }
 
 ChildCard.propTypes = {
-    name: PropTypes.string.isRequired, // 名称
-    avatar: PropTypes.string, // 头像
+  name: PropTypes.string.isRequired, // 名称
+  avatar: PropTypes.string, // 头像
 }
 
 export default ChildCard;
@@ -207,17 +207,17 @@ export default ChildCard;
 
 ```
 class FooterBarBasic extends Component {
-    pay = (id) => {
-        this.props.beforePay(id);
-    }
+  pay = (id) => {
+    this.props.beforePay(id);
+ }
 
-    render() {
-        return (
-            <div className="footer-bar">
-                <button onClick={() => { this.pay(this.props.id); }}>购买</button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="footer-bar">
+        <button onClick={() => { this.pay(this.props.id); }}>购买</button>
+      </div>
+    );
+  }
 }
 ```
 
@@ -227,17 +227,17 @@ class FooterBarBasic extends Component {
 
 ```
 class FooterBarBasic extends Component {
-    pay = () => {
-        this.props.beforePay(this.props.id);
-    }
+  pay = () => {
+    this.props.beforePay(this.props.id);
+  }
 
-    render() {
-        return (
-            <div className="footer-bar">
-                <button onClick={this.pay}>购买</button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="footer-bar">
+        <button onClick={this.pay}>购买</button>
+      </div>
+    );
+  }
 }
 ```
 
@@ -305,27 +305,27 @@ class FooterBarBasic extends Component {
 
 ```
 class FooterBarBasic extends Component {
-    pay = () => {
-        const {
-            course_id,
-            isjoin,
-            cou_id: coupon_id, // 解构命名
-        } = this.props;
+  pay = () => {
+    const {
+    course_id,
+    isjoin,
+    cou_id: coupon_id, // 解构命名
+    } = this.props;
 
-        this.props.pay({
-            course_id,
-            isjoin,
-            cou_id, // 最后一项也要带逗号，方便代码比对和添加参数
-        });
-    }
+    this.props.pay({
+    course_id,
+    isjoin,
+    cou_id, // 最后一项也要带逗号，方便代码比对和添加参数
+    });
+  }
 
-    render() {
-        return (
-            <div className="footer-bar">
-                <button onClick={this.pay}>购买</button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="footer-bar">
+        <button onClick={this.pay}>购买</button>
+      </div>
+    );
+  }
 }
 ```
 
@@ -341,31 +341,31 @@ class FooterBarBasic extends Component {
 
 ```
 class FooterBarBasic extends Component {
-    pay = () => {
-        const {
-            course_id,
-            isjoin,
-            cou_id: coupon_id, // 解构命名
-        } = this.props;
+  pay = () => {
+    const {
+      course_id,
+      isjoin,
+      cou_id: coupon_id, // 解构命名
+    } = this.props;
 
-        this.props.pay({
-            course_id,
-            isjoin,
-            cou_id, // 最后一项也要带逗号，方便代码比对和添加参数
-        }).then(() => {
-            location.href = 'http://fudao.qq.com/pay_success.html';
-        }).catch(() => {
-            alert('支付失败，请重试!');
-        });
-    }
+    this.props.pay({
+      course_id,
+      isjoin,
+      cou_id, // 最后一项也要带逗号，方便代码比对和添加参数
+    }).then(() => {
+      location.href = 'http://fudao.qq.com/pay_success.html';
+    }).catch(() => {
+      alert('支付失败，请重试!');
+    });
+  }
 
-    render() {
-        return (
-            <div className="footer-bar">
-                <button onClick={this.pay}>购买</button>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="footer-bar">
+        <button onClick={this.pay}>购买</button>
+      </div>
+    );
+  }
 }
 ```
 
@@ -489,15 +489,15 @@ const action = Object.assign({
 
 ```
 render() {
-    const props = this.props;
+  const props = this.props;
 
-    if (!props.cid && props.courseDetailFail) {
-      return <PageFail />;
-    } else if (!props.cid) {
-      return <FetchingLoading />;
-    }
+  if (!props.cid && props.courseDetailFail) {
+    return <PageFail />;
+  } else if (!props.cid) {
+    return <FetchingLoading />;
+  }
 
-    return <div>加载成功</div>
+  return <div>加载成功</div>
 }
 ```
 
@@ -511,8 +511,4 @@ let footerBarClass = classnames({
 ```
 
 相关链接：[Class Name Manipulation](https://github.com/JedWatson/classnames/blob/master/README.md)
-
-
-
-
 
