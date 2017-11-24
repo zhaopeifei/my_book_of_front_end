@@ -156,15 +156,27 @@ ChildCard.propTypes = {
 export default ChildCard;
 ```
 
+## defaultProps
+
+不要检查某个props值是否存在，而是使用defaultProps去预设Props。
+
 ## 
 
 ## 方法
 
 ---
 
+### 事件响应函数命名
+
+事件响应函数满足以下条件：
+
+1. 第一个单词为handle；
+2. 最后一个单词为要响应的的事件，如Click；
+3. 中间词汇根据功能来定义。
+
 ### 方法定义及绑定this
 
-使用箭头函数，直接在定义的时候就可以绑定this，一般情况下，直接使用箭头函数就好。不建议使用bind，使用bind的话还需要在constructor中进行绑定this，一来是要在两个地方写，二来，很多时候并不需要constructor函数。
+使用箭头函数，直接在定义的时候就可以绑定this，一般情况下，直接使用箭头函数就好。除了生命周期函数外，都使用箭头函数。
 
 ```
 class FooterBarBasic extends Component {
@@ -206,7 +218,48 @@ class FooterBarBasic extends Component {
 
 一个方法的长度不要超过20行，超过的话，就需要进行拆分。特别是生命周期中的函数，一定不要太长。
 
-## 
+### 使用get、set
+
+在render中，有时候需要缓存一些数据或者判断条件等，此时最好使用get或者set。
+
+    // bad
+    class Coupon extends Component {
+      render() {
+        let valueSales = props.sales 
+          ? (`省 ¥${props.sales}`)
+          : (props.coupon_disc 
+            ? ('最多省¥' + (props.coupon_disc / 100).toFixed(2))
+            : '无可用优惠券');
+
+        return (
+          <div className="coupon">
+            <label className="formLabel">优惠券</label>
+            <span className={valueClass}>{valueSales}</span>
+          </div>
+        )
+      }
+    }
+
+    class Coupon extends Component {
+      get valueSales () {
+        if (props.sales) {
+          return `省 ¥${props.sales}`;
+        } else if (props.coupon_disc) {
+          return '最多省¥' + (props.coupon_disc / 100).toFixed(2));
+        }
+
+        return '无可用优惠券';
+      }
+
+      render() {
+        return (
+          <div className="coupon">
+            <label className="formLabel">优惠券</label>
+            <span className={valueClass}>{this.valueSales}</span>
+          </div>
+        )
+      }
+    }
 
 ## 变量
 
