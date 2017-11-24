@@ -385,10 +385,10 @@ const reduer = function (state = {}, action) {
     case TYPE1:
     case TYPE2:
     case TYPE3:
-      return Object.assign(...state, action.data); // 一样的处理方式进行合并
+      return Object.assign({}, state, action.data); // 一样的处理方式进行合并
 
     case PAID: 
-      return Object.assign(...state, action.data, {paid: true});
+      return Object.assign({}, state, action.data, {paid: true});
 
     default:
       return state;
