@@ -152,6 +152,7 @@ ChildCard.propTypes = {
     name: PropTypes.string.isRequired, // 名称
     avatar: PropTypes.string, // 头像
 }
+
 export default ChildCard;
 ```
 
