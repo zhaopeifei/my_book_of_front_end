@@ -29,8 +29,6 @@
   * reducer.js
   * store.js
 
-
-
 ### 容器组件与展示组件
 
 容器组件负责业务逻辑，展示组件负责渲染，展示组件尽量做成无状态组件。
@@ -190,6 +188,10 @@ export default ChildCard;
 ## 方法
 
 ---
+
+### 生命周期函数
+
+除了render函数是必须的外，其他生命函数在不需要的时候都不要写。constructor只有在需要定义state的时候是必须的。
 
 ### 事件响应函数命名
 
@@ -396,11 +398,7 @@ const reduer = function (state = {}, action) {
 
 ### combineReducer
 
-## 生命周期函数
-
----
-
-除了render函数是必须的外，其他生命函数在不需要的时候都不要写。constructor只有在需要定义state的时候是必须的。
+## 
 
 ## 调试工具
 
@@ -502,6 +500,19 @@ render() {
     return <div>加载成功</div>
 }
 ```
+
+* classname
+
+```
+let footerBarClass = classnames({
+  footerBar: true,
+  showOtherPay
+});
+```
+
+相关链接：[Class Name Manipulation](https://github.com/JedWatson/classnames/blob/master/README.md)
+
+
 
 
 
