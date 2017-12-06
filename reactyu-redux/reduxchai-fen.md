@@ -18,7 +18,7 @@
 
 ### action、reducer组织方式
 
-#### 鸭子式（推荐）
+#### 按模块进行划分（推荐）
 
 目录结构如下：
 
@@ -102,8 +102,6 @@ const Root = connect(
 )(Container);
 ```
 
-
-
 ### reducer的使用
 
 reducer的应用影响了state的结构，所以这里要慎重一些，在页面的reducer.js中组合reducer
@@ -120,7 +118,7 @@ function reducer(state = {}, action) {
   switch (action.type) {
     case GET_DATA:
       return { ...state, ...action.data };
-    
+
     default:
       return state;
   }
@@ -152,17 +150,17 @@ import { dialogReducer } from 'components/dialog';
 import { GET_DATA } from './action_types';
 
 function reducer (state = {}, action) {
-  const courseDetail = courseReucer(state.courseDetail, action);
+  const course = courseReucer(state, action);
   state = {
     ...state,
-    ...courseDetail,
+    ...course,
     dialog: dialogReducer(state.dialog, action),
   };
 
   switch (action.type) {
     case GET_DATA:
       return { ...state, ...action.data };
-    
+
     default:
       return state;
   }
@@ -181,8 +179,6 @@ export default reducer;
 ```
 
 combineReducer只是简单的将reducer进行组合而已，自己实现也是完全OK的。如上图的方式，我们可以选择将公共的redux模块的数据放在this.props中（如courseReducer），也可以选择将其放到this.props的一个对象中（如dialogReucer）。由于我们原有结构不适合使用combineReducer，应为改造成本高，所以建议使用自定义组织reducer模式。
-
-
 
 ## 公共组件redux
 
@@ -261,7 +257,7 @@ class Container extends Component{
       leftBtnClick: this.props.hideDialog,
     });
   }
-  
+
   render() {
     return(
       <div>
