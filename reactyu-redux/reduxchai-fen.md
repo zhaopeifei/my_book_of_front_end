@@ -64,7 +64,7 @@ export {
 };
 ```
 
-    2. 函数功能划分
+1. 函数功能划分
 
 按照函数公共划分，即按照actionType、actionCreator、reducer将文件分为action_creator、action_\_type、reducer。这种方式因为函数功能类似，所以结构较清晰，但是并不利于后期的维护，因为添加一个action需要在三个文件中做更改。代码略，目录结构如下图：
 
@@ -73,9 +73,9 @@ export {
   * action\_type.js
   * reducer.js
 
-
-
 ## 公共Redux的使用
+
+---
 
 
 
