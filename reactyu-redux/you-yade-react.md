@@ -405,8 +405,6 @@ export default combineReducer({
 })
 ```
 
-
-
 ## 调试工具
 
 ---
@@ -488,13 +486,11 @@ const action = Object.assign({
 
 * 使用模板字符串
 
-  const url = \\``${location.protocol}//fudao.qq.com/other_pay.html`
+  const url = \```${location.protocol}//fudao.qq.com/other_pay.html``
 
   * `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
 
-`` const url = \`${location.protocol}//fudao.qq.com/other_pay.html\` + ``
-
-
+``const url = `${location.protocol}//fudao.qq.com/other_pay.html` +``
 
 * 加载中&加载失败
 
