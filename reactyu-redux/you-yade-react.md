@@ -89,6 +89,29 @@ class Child extends PureComponent {
 export default Child;
 ```
 
+### LIST组件
+
+在开发中，经常要渲染列表，不知道具体要渲染多少个，此时要给每个li组件附一个key值，且key值应该是id等具有真实含义的值，而不应该是index等这些数据。
+
+```
+<ul className="cardlist-all-course">
+  {courseList.map((item, index) => {
+    return (
+      <CourseCard
+        key={item.cid} // key不能是index
+        {...{
+          cid: item.cid,
+          teacherName: item.teacherName || '',
+          grade: item.grade,
+          subject: item.subject,
+          hasLine: index < courseList.length - 1,
+        }}
+      />
+    );
+  })}
+</ul>
+```
+
 ### 高阶组件（组合和继承）
 
 在不需要用高阶组件的地方尽量不要用高阶组件，要用高阶组件的情况下，尽量选择组合的方式。
@@ -238,6 +261,35 @@ class FooterBarBasic extends Component {
   }
 }
 ```
+
+此外，如果每个li元素要绑定函数，则可以把函数参数放到元素data属性上。例如：
+
+    function handleClick(e) {
+      // const { cid, name } = e.currentTarget.dataset; // ie10及以下不能使用dataset
+      const cid = e.currentTarget.getAttribute('data-cid'); // 从data-属性上取值
+      const name = e.currentTarget.getAttribute('data-name');
+      window.open(`//fudao.qq.com/pc/task_detail.html?cid=${cid}&title=${encodeURIComponent(`${name}课程任务详情页`)}`);
+    }
+
+    const CourseCard = ({ cid, name, grade, subject, plan, teacherName, studyTerm, totalLesson, hasLine }) => {
+      const className = classNames({
+        'course-card': true,
+        line: hasLine,
+      });
+
+      return (
+        <div className={className} data-cid={cid} data-name={name} onClick={handleClick}>
+          <div className="title">
+            <CourseIcon type="grade" name={grade} />
+            <CourseIcon type="subject" name={subject} />
+            {name}
+          </div>
+          <div className="plan">{`${plan}  ${teacherName}`}</div>
+          <div className="lesson">学习进度 {`${studyTerm} / ${totalLesson}`}</div>
+          {hasLine && <div className="line" />}
+        </div>
+      );
+    };
 
 ### 方法长度
 
