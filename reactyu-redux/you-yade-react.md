@@ -1,7 +1,5 @@
 # 优雅的React写法
 
-## 
-
 ## 组件
 
 ---
@@ -207,14 +205,14 @@ export default ChildCard;
 
 ```
 class FooterBarBasic extends Component {
-  pay = (id) => {
+  handlePayClick = (id) => {
     this.props.beforePay(id);
  }
 
   render() {
     return (
       <div className="footer-bar">
-        <button onClick={() => { this.pay(this.props.id); }}>购买</button>
+        <button onClick={() => { this.handlePayClick(this.props.id); }}>购买</button>
       </div>
     );
   }
@@ -227,14 +225,14 @@ class FooterBarBasic extends Component {
 
 ```
 class FooterBarBasic extends Component {
-  pay = () => {
+  handlePayClick = () => {
     this.props.beforePay(this.props.id);
   }
 
   render() {
     return (
       <div className="footer-bar">
-        <button onClick={this.pay}>购买</button>
+        <button onClick={this.handlePayClick}>购买</button>
       </div>
     );
   }
@@ -398,7 +396,16 @@ const reduer = function (state = {}, action) {
 
 ### combineReducer
 
-## 
+随着应用变得复杂，需要对reducer函数进行拆分，拆分后的每一块独立负责管理state的一部分。combineReducer函数可以帮助我们组合reducer函数，它的作用仅仅如此，我们也可以自己来组合reducer。
+
+```
+export default combineReducer({
+  course: courseReducer,
+  pay: payReducer,
+})
+```
+
+
 
 ## 调试工具
 
@@ -481,9 +488,13 @@ const action = Object.assign({
 
 * 使用模板字符串
 
-  const url = `${location.protocol}//fudao.qq.com/other_pay.html`
+  const url = \\``${location.protocol}//fudao.qq.com/other_pay.html`
 
   * `?_bid=2379&course_id=${props.cid}&subpay_code=${props.subpayCode}`;
+
+`` const url = \`${location.protocol}//fudao.qq.com/other_pay.html\` + ``
+
+
 
 * 加载中&加载失败
 
