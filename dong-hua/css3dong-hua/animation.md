@@ -30,7 +30,7 @@ animation-timing-function表示动画改变的属性的变化速度。
 ```
 animation-timing-function: <single-timing-function> #
 ```
-<single-timing-function>等同于css transition中transition-timing-function的值。
+<single-timing-function>等同于css transition中transition-timing-function的值，默认值为“ease”。
 
 ### animation-delay
 ```
@@ -48,11 +48,33 @@ animation-iteration-count: <single-animation-iteration-count> #
 默认值为1，非继承属性。
 
 ### animation-direction
+animation-direction指示动画是否反向播放。
+```
+animation-direction： <single-animation-direction> #
+<single-animation-direction> = normal | reverse | alternate | alternate-reverse
+```
+* normal: 每个循环内动画向前循环，换言之，每个动画循环结束，动画重置到起点重新开始，这是默认属性。
+* alternate: 动画交替反向运行，反向运行时，动画按步后退，同时，带时间功能的函数也反向，比如，ease-in 在反向时成为ease-out。计数取决于开始时是奇数迭代还是偶数迭代。
+* reverse：反向运行动画，每周期结束动画由尾到头运行。
+* alternate-reverse：反向交替， 反向开始交替。动画第一次运行时是反向的，然后下一次是正向，后面依次循环。决定奇数次或偶数次的计数从1开始。
 
 ### animation-fill-mode
+animation-fill-mode用来指定在动画执行之前和之后如何给动画的目标应用样式。
+```
+animation-fill-mode: <single-animation-fill-mode>#
+<single-animation-fill-mode> = none | forwards | backwards | both
+```
+* none: 动画执行前后不改变任何样式，默认值。
+* forwards：目标保持动画最后一帧的样式。
+* backwards：动画采用相应第一帧的样式。
+* both：动画将会执行 forwards 和 backwards 执行的动作。
 
 ### animation-name
-
+animation-name属性指定应用的一系列动画，每个名称代表一个由@keyframes定义的动画序列。
+```
+animation-name: [none | <keyframes-name>]#
+```
+默认值为none，表示无关键帧，会使动画失效。
 
 ### animation
 ```
@@ -60,3 +82,35 @@ animation: <single-animation> #
 <single-animation> = <time> || <single-timing-function> || <time> || <single-animation-iteration-count> || <single-animation-direction> || <single-animation-fill-mode> || <single-animation-play-state> || [ none | <keyframes-name> ]
 ```
 
+### @keyframe
+
+```
+@keyframes <keyframes-name> {
+  <rule-list>
+}
+
+<keyframe-block> = <keyframe-selector># { <declaration-list> }
+<keyframe-selector> = from | to | <percentage>
+```
+
+```
+div {
+  animation-name: slide-right;
+  animation-duration: 2s;
+}
+@keyframes slide-right {
+  from {
+    margin-left: 0px;
+  }
+  50% {
+    margin-left: 110px;
+    opacity: 1;
+  }
+  50% {
+     opacity: 0.9;
+  }
+  to {
+    margin-left: 200px;
+  }
+}
+```

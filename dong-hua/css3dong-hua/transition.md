@@ -49,6 +49,7 @@ transition-timing-function: <single-timing-function> #
 <step-timing-function> = step-start | step-end | steps(<integer>[, [ start | end ] ]?)
 <frames-timing-function> = frames(<integer>)
 ```
+默认值为“ease”，非继承属性。
 
 ### transition-delay
 transition-delay表示过渡性变化发生的时间，即延迟时间。
