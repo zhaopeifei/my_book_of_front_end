@@ -13,6 +13,10 @@
 * [3. HTML](html.md)
 * [4. 计算机网络](ji-suan-ji-wang-luo.md)
 * [5. 动画](dong-hua.md)
+  * [CSS动画](dong-hua/css3dong-hua.md)
+  * js动画
+  * SVG动画
+  * canvas动画
 * [6. 性能优化](xing-neng-you-hua.md)
 * [7. 框架](kuang-jia.md)
 * [8. 工程化](gong-cheng-hua.md)
