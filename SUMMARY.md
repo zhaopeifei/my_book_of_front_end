@@ -14,6 +14,8 @@
 * [4. 计算机网络](ji-suan-ji-wang-luo.md)
 * [5. 动画](dong-hua.md)
   * [CSS动画](dong-hua/css3dong-hua.md)
+    * [transition](dong-hua/css3dong-hua/transition.md)
+    * [animation](dong-hua/css3dong-hua/animation.md)
   * [js动画](dong-hua/jsdong-hua.md)
   * SVG动画
   * canvas动画
