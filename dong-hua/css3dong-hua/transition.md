@@ -1,7 +1,7 @@
 # CSS transition
 >CSS Transitions allows property changes in CSS values to occur smoothly over a specified duration.
 
-CSS transition允许css属性在一段时间内平稳地改变，进而能够实现过渡效果的动画。
+CSS transition允许css属性在一段时间内平稳地改变，进而能够实现过渡效果的动画。可应用于所有元素、::before和::after伪元素。
 
 ## 属性设置
 css transition可以通过transition属性来设置
