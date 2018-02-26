@@ -65,6 +65,10 @@ transition: <single-transition> #
 <single-transition> = [ none | <single-transition-property> ] || <time> || <single-timing-function> || <time>
 ```
 
+## 简单的demo
+<p data-height="265" data-theme-id="0" data-slug-hash="ZrqoYj" data-default-tab="css,result" data-user="peytonzhao" data-embed-version="2" data-pen-title="CSS Transition" class="codepen">See the Pen <a href="https://codepen.io/peytonzhao/pen/ZrqoYj/">CSS Transition</a> by peyton (<a href="https://codepen.io/peytonzhao">@peytonzhao</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 
 
 
