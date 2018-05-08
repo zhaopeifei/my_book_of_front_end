@@ -53,6 +53,7 @@ animate元素用来为SVG形状的属性添加动画。示例如下：
 * attributeName：要修改的属性名称，也可以是css样式名称；
 
 * attributeType：XML或CSS，如果修改的XML属性，则为XML，如果是修改形状的CSS属性，则为CSS
+
 * from：属性起始值
 * to：属性结束值
 * begin：动画开始时间，后面可以带时间单位：h、min、s\(秒\)、ms\(毫秒\)
@@ -60,24 +61,7 @@ animate元素用来为SVG形状的属性添加动画。示例如下：
 * fill：
 * repeatCount：重复次数，可以设置成一个数值或indefinite
 
-此外，可以为一个SVG形状添加多段动画，并控制其先后顺序。示例如下：
 
-```
-<rect x="0" y="0" width="30" height="15"
-      style="stroke: #ff0000; fill: none;">
-
-    <animate id="one"
-             attributeName="x" attributeType="XML"
-             from="0" to="400"
-             begin="0s" dur="10s" fill="freeze"
-            />
-    <animate
-            attributeName="y" attributeType="XML"
-            from="0" to="50"
-            begin="one.end" dur="10s" fill="freeze"
-            />
-</rect>
-```
 
 ### 转换动画——animateTransform
 
@@ -157,6 +141,37 @@ animateMotion元素可以使SVG形状沿着路径的线路移动。示例如下�
             />
 </rect>
 ```
+
+### 协调动画
+
+此外，可以为一个SVG形状添加多段动画，并控制其先后顺序。示例如下：
+
+```
+<rect x="0" y="0" width="30" height="15"
+      style="stroke: #ff0000; fill: none;">
+
+    <animate id="one"
+             attributeName="x" attributeType="XML"
+             from="0" to="400"
+             begin="0s" dur="10s" fill="freeze"
+            />
+    <animate
+            attributeName="y" attributeType="XML"
+            from="0" to="50"
+            begin="one.end" dur="10s" fill="freeze"
+            />
+</rect>
+```
+
+## 其他动画
+
+---
+
+除了使用SVG提供的动画元素实现动画外，也可以通过JS脚本控制SVG形状属性，进行实现动画效果，同时，也可以通过样式表来控制SVG形状的CSS属性进而实现动画。
+
+### JS脚本动画
+
+### 样式表动画
 
 
 
