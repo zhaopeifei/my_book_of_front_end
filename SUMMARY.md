@@ -17,7 +17,11 @@
     * [transition](dong-hua/css3dong-hua/transition.md)
     * [animation](dong-hua/css3dong-hua/animation.md)
   * [js动画](dong-hua/jsdong-hua.md)
-  * SVG动画
+  * [SVG](dong-hua/svgdong-hua.md)
+    * [SVG元素](dong-hua/svgdong-hua/svgyuan-su.md)
+    * SVG属性
+    * [SVG动画](dong-hua/svgdong-hua/svgdong-hua.md)
+    * Lottie
   * canvas动画
 * [6. 性能优化](xing-neng-you-hua.md)
 * [7. 框架](kuang-jia.md)
