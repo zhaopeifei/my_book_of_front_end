@@ -18,10 +18,17 @@
     * [animation](dong-hua/css3dong-hua/animation.md)
   * [js动画](dong-hua/jsdong-hua.md)
   * [SVG](dong-hua/svgdong-hua.md)
-    * [SVG元素](dong-hua/svgdong-hua/svgyuan-su.md)
-    * SVG属性
+    * [形状元素](dong-hua/svgdong-hua/svgyuan-su.md)
+    * [容器元素](dong-hua/svgdong-hua/svgrong-qi-yuan-su.md)
+    * [滤镜&遮罩&渐变元素](dong-hua/svgdong-hua/lv-955c26-jian-bian-yuan-su.md)
+    * [文本元素](dong-hua/svgdong-hua/wen-ben-yuan-su.md)
+    * [坐标系&视口](dong-hua/svgdong-hua/zuo-biao-7cfb26-shi-kou.md)
+    * [轮廓&填充](dong-hua/svgdong-hua/lun-5ed326-tian-chong.md)
+    * [transform变换](dong-hua/svgdong-hua/transformbian-huan.md)
+    * [SVG属性](dong-hua/svgdong-hua/svgshu-xing.md)
     * [SVG动画](dong-hua/svgdong-hua/svgdong-hua.md)
-    * Lottie
+    * [Lottie动画方案](dong-hua/svgdong-hua/lottiedong-hua-fang-an.md)
+    * [SVG压缩](dong-hua/svgdong-hua/svgya-suo.md)
   * canvas动画
 * [6. 性能优化](xing-neng-you-hua.md)
 * [7. 框架](kuang-jia.md)
