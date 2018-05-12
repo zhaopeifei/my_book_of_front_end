@@ -144,7 +144,7 @@ SVG还提供了`<path>`元素来绘制组合线条、弧线、曲线等高级形
 
 ### 贝塞尔曲线 {#%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF}
 
-`<path>`元素也可以绘制[贝塞尔曲线](https://zh.wikipedia.org/wiki/%E8%B2%9D%E8%8C%B2%E6%9B%B2%E7%B7%9A)，贝塞尔曲线是被广泛应用的一种曲线。`<path>`元素可以绘制二次别赛尔曲线和三次贝塞尔曲线。
+`<path>`元素也可以绘制[贝塞尔曲线](https://zh.wikipedia.org/wiki/貝茲曲線)，贝塞尔曲线是被广泛应用的一种曲线。`<path>`元素可以绘制二次别赛尔曲线和三次贝塞尔曲线。
 
 绘制二次贝塞尔曲线的命令是Q（或者q），其后面跟四个参数：
 
@@ -217,6 +217,14 @@ SVG还提供了`<path>`元素来绘制组合线条、弧线、曲线等高级形
 | T | x,y | 平滑二次贝塞尔曲线缩写 | 从画笔位置到点x,y绘制一条三次贝塞尔曲线。控制点与所使用的的最后一个控制点相同。 |
 | A | rx,ry x-axis-rotation large-arc-flag,sweep-flag x,y | 椭圆弧 | 从当前点到x,y点绘制一条椭圆弧。rx和ry为椭圆在x和y方向上的半径。x-rotation确定圆弧围绕x轴旋转的角度。当rx和ry的值不同时，它才会有效果。large-arc-flag表示是否是大圆弧，sweep-flag表示是否是顺时针绘制。 |
 | Z |  | 闭合路径 | 通过从当前点到第一个点绘制一条线来关闭路径。 |
+
+
+
+## 参考文章
+
+* [SVG入门教程（中文翻译版）](https://legacy.gitbook.com/book/brucewar/svg-tutorial/details)
+
+* [SVG元素参考-MDN](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Element)
 
 
 
