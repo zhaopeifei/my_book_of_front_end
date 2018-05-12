@@ -1,6 +1,6 @@
 # Lottie: 让动画如此简单
 
-> Render After Effects animations natively on Web, Android and iOS, and React Native. http://airbnb.io/lottie/
+> Render After Effects animations natively on Web, Android and iOS, and React Native. [http://airbnb.io/lottie/](http://airbnb.io/lottie/)
 
 Lotties是由Airbnb推出的一个，能够在Web、Android、iOS和RN等平台渲染Adobe After Effects软件制作的动画的库。使用这种解决方案，设计师出一份动画，就可以在各个端实现动画效果了。目前该库在Github上累计已经有了几万的star，腾讯内容有些团队已经在使用了，稳定性相对较好。官方效果图如下：
 
