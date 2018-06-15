@@ -30,6 +30,11 @@
     * [Lottie动画方案](dong-hua/svgdong-hua/lottiedong-hua-fang-an.md)
     * [SVG压缩](dong-hua/svgdong-hua/svgya-suo.md)
   * canvas动画
+  * [Lottie](dong-hua/lottie.md)
+    * lottie系列文章\(一\)：lottie介绍
+    * lottie系列文章\(二\)：lottie最佳实践
+    * lottie系列文章\(三\)：动画设计规范
+    * [lottie系列文章\(四\)：源码分析——svg渲染](dong-hua/lottie/lottiexi-lie-wen-7ae028-56db29-ff1a-yuan-ma-fen-xi-2014-2014-svg-xuan-ran.md)
 * [6. 性能优化](xing-neng-you-hua.md)
 * [7. 框架](kuang-jia.md)
 * [8. 工程化](gong-cheng-hua.md)
