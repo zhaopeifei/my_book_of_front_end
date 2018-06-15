@@ -32,8 +32,8 @@
   * canvas动画
   * [Lottie](dong-hua/lottie.md)
     * lottie系列文章\(一\)：lottie介绍
-    * lottie系列文章\(二\)：lottie最佳实践
-    * lottie系列文章\(三\)：动画设计规范
+    * [lottie系列文章\(二\)：lottie最佳实践](dong-hua/lottie/lottiexi-lie-wen-7ae028-4e8c29-ff1a-lottie-zui-jia-shi-jian.md)
+    * [lottie系列文章\(三\)：动画设计规范](dong-hua/lottie/lottiexi-lie-wen-7ae028-4e0929-ff1a-dong-hua-she-ji-gui-fan.md)
     * [lottie系列文章\(四\)：源码分析——svg渲染](dong-hua/lottie/lottiexi-lie-wen-7ae028-56db29-ff1a-yuan-ma-fen-xi-2014-2014-svg-xuan-ran.md)
 * [6. 性能优化](xing-neng-you-hua.md)
 * [7. 框架](kuang-jia.md)
