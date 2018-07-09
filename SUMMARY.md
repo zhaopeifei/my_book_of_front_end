@@ -27,7 +27,6 @@
     * [transform变换](dong-hua/svgdong-hua/transformbian-huan.md)
     * [SVG属性](dong-hua/svgdong-hua/svgshu-xing.md)
     * [SVG动画](dong-hua/svgdong-hua/svgdong-hua.md)
-    * [Lottie动画方案](dong-hua/svgdong-hua/lottiedong-hua-fang-an.md)
     * [SVG压缩](dong-hua/svgdong-hua/svgya-suo.md)
   * canvas动画
   * [Lottie](dong-hua/lottie.md)
