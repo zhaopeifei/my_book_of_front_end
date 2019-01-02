@@ -47,4 +47,6 @@
   * [Redux拆分](reactyu-redux/reduxchai-fen.md)
   * [React性能优化](reactyu-redux/reactxing-neng-you-hua.md)
   * [优雅的React](reactyu-redux/you-yade-react.md)
+* [面试题目](mian-shi-ti-mu.md)
+  * [new call apply bind实现](mian-shi-ti-mu/new-call-apply-bind.md)
 
